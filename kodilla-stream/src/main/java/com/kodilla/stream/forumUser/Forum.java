@@ -1,6 +1,5 @@
 package com.kodilla.stream.forumUser;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +8,7 @@ public class Forum {
         this.forumUsers = forumUsers;
     }
 
-    public List<ForumUser> forumUsers = new ArrayList<>();
+    public List<ForumUser> forumUsers;
 
     public List<ForumUser> getUserList() {
         return forumUsers;

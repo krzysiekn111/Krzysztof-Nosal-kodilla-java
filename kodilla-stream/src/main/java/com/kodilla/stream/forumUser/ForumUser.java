@@ -36,9 +36,9 @@ public class ForumUser {
     @Override
     public String toString() {
         return "ForumUser{" +
-                "gender=" + gender +
-                ", dateOfBith=" + dateOfBith +
-                ", numberPostsPublished=" + numberPostsPublished +
+                "gender: " + gender +
+                ", dateOfBith: " + dateOfBith +
+                ", numberPostsPublished: " + numberPostsPublished +
                 '}';
     }
 }
