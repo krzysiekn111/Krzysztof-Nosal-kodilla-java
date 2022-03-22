@@ -35,11 +35,11 @@ public class StreamMain {
         forumUsers.add(forumUser6);
 
         Forum forum = new Forum(forumUsers);
-        LocalDate thisMoment = LocalDate.now();
+        LocalDate theMoment = LocalDate.now().minusYears(20);
 
         Map<Integer, String > par = forum.getUserList().stream()
                 .filter(user -> user.getGender() =='M')
-                .filter(user -> (int) user.getDateOfBith().getYear()<(int)thisMoment.getYear()-20)
+                .filter(user -> user.getDateOfBith().getYear()<theMoment.getYear())
                 .filter(user -> user.getNumberPostsPublished()>0)
                 .collect(Collectors.toMap(ForumUser::getIdentifier, ForumUser::toString));
 
