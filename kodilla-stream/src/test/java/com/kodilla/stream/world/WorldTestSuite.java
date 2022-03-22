@@ -51,5 +51,6 @@ public class WorldTestSuite {
 
         BigDecimal worldPopulationQuantity = new BigDecimal("3650000000");
         assertEquals(worldPopulationQuantity, getPeopleQuantityResult);
+
     }
 }

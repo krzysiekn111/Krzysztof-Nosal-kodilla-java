@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class World {
-    public List<Continent> continents;
+    private List<Continent> continents;
 
     public World(List<Continent> continents) {
         this.continents = continents;
