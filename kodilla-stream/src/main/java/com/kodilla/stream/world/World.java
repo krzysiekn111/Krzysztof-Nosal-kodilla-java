@@ -9,11 +9,11 @@ public class World {
     public World(List<Continent> continents) {
         this.continents = continents;
     }
-     BigDecimal getPeopleQuantity() {
-        BigDecimal peopleQuantity = continents.stream().flatMap(continent -> continent.getCountries().stream())
+
+    BigDecimal getPeopleQuantity() {
+        return continents.stream().flatMap(continent -> continent.getCountries().stream())
                 .map(Country::getPopulation)
                 .reduce(BigDecimal.ZERO, (sum, current) -> sum.add(current));
-         return peopleQuantity;
-     }
+    }
 
 }
