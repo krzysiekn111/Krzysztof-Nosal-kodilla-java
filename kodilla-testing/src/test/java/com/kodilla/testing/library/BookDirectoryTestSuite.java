@@ -111,7 +111,7 @@ class BookDirectoryTestSuite {
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(resultListOf5Books);
 
         //when
-        List<Book> resultList = libraryDatabaseMock.listBooksInHandsOf(libraryUser);
+        List<Book> resultList = bookLibrary.listBooksInHandsOf(libraryUser);
 
         //Then
         assertEquals(5, resultList.size());
@@ -125,7 +125,7 @@ class BookDirectoryTestSuite {
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(resultListOf1Books);
 
         //when
-        List<Book> resultList = libraryDatabaseMock.listBooksInHandsOf(libraryUser);
+        List<Book> resultList = bookLibrary.listBooksInHandsOf(libraryUser);
 
         //Then
         assertEquals(1, resultList.size());
