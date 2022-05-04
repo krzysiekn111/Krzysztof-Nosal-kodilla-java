@@ -35,7 +35,7 @@ public class PlaneFlightSearcher {
             }
         }
 
-        return flyingDirections;
+        return result;
     }
 
     public List<FlyingDirections> flightTo(String to) {
