@@ -26,9 +26,17 @@ public class Application {
         Data data = new Data(flyingDirections);
 
         PlaneFlightSearcher planeFlightSearcher = new PlaneFlightSearcher(data);
-        planeFlightSearcher.directFlight(krakow, poznan);
-        planeFlightSearcher.connectionFlight(warszawa, poznan);
-        planeFlightSearcher.flightTo(krakow);
-        planeFlightSearcher.flightFrom(krakow);
+
+        List<FlyingDirections> directResult = planeFlightSearcher.directFlight(krakow, poznan);
+        System.out.println(directResult);
+
+        List<FlyingDirections> connectionFlightResult = planeFlightSearcher.connectionFlight(krakow, poznan);
+        System.out.println(connectionFlightResult);
+
+        List<FlyingDirections> flightToResult = planeFlightSearcher.flightFrom(krakow);
+        System.out.println(flightToResult);
+
+        List<FlyingDirections> flightFromResult = planeFlightSearcher.flightTo(poznan);
+        System.out.println(flightFromResult);
     }
 }
