@@ -11,7 +11,7 @@ public class LoggerTestSuite {
 
     @BeforeAll
     public static void openSettingsFile() {
-        settingsLogger = Logger.INSTANCE2;
+        settingsLogger = Logger.INSTANCE;
         settingsLogger.log("loging");
     }
 

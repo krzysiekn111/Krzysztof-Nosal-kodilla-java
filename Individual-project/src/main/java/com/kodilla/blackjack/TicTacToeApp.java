@@ -1,6 +1,7 @@
 package com.kodilla.blackjack;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -115,7 +116,7 @@ public class TicTacToeApp extends Application {
         }
     }
 
-    private class Tile extends StackPane {
+    class Tile extends StackPane {
         private Text text = new Text();
 
         public Tile() {
@@ -136,6 +137,9 @@ public class TicTacToeApp extends Application {
                 if ((event.getButton() == MouseButton.PRIMARY)) {
                     if ((turnX)) {
                         drawX();
+                        //checkState
+                        //cpuMove
+                        //checkState
                     } else {
                         drawO();
                     }
@@ -172,15 +176,22 @@ public class TicTacToeApp extends Application {
             }
         }
     }
-//    public void randomComputerMove(Boolean turnX) {
-//        if (!turnX) {
-//            for (Tile[] board : board) {
-//                if ()
-//            }
-//        }
-//    }
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public void cpuMove() {
+        List<Tile> emptyTiles = new ArrayList<>();
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if (board[i][j].getValue().equals("")) {
+                    emptyTiles.add(board[i][j]);
+                }
+            }
+        }
+
+        Collections.shuffle(emptyTiles);
+        emptyTiles.get(0).drawO();
     }
 }

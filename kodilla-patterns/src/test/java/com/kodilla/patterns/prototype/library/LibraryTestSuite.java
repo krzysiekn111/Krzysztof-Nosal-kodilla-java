@@ -30,7 +30,7 @@ public class LibraryTestSuite {
         }
 
         //shallow copy
-//        assertEquals(library.getBooks(), clonedLibrary.getBooks());
+        assertEquals(library.getBooks(), clonedLibrary.getBooks());
         assertEquals(library.getBooks(), clonedLibrary2.getBooks());
     }
 }

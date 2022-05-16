@@ -19,11 +19,12 @@ public class Application {
 
         Order order = new Order(extraFoodShop, orderItem1, orderItem2, orderItem3);
         Order order2 = new Order(glutenFreeShop, orderItem4);
-       Order order3 = new Order(healthyShop, orderItem5, orderItem6, orderItem7, orderItem8);
+        Order order3 = new Order(healthyShop, orderItem5, orderItem6, orderItem7, orderItem8);
 
-       order.getAbstractCatererProcessor().process(order);
-        order2.getAbstractCatererProcessor().process(order2);
-        order3.getAbstractCatererProcessor().process(order3);
+        OrderService orderService = new OrderService();
+        orderService.processOrder(order);
+        orderService.processOrder(order2);
+        orderService.processOrder(order3);
 
 
 
