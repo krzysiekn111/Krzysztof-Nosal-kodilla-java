@@ -1,6 +1,10 @@
 package com.kodilla.patterns.factory.tasks;
 
 public class DrivingTask implements Task {
+    String taskName;
+    String where;
+    String using;
+
 
     DrivingTask(String taskName, String where, String using) {
 
@@ -13,7 +17,7 @@ public class DrivingTask implements Task {
 
     @Override
     public String getTaskName() {
-        return null;
+        return taskName;
     }
 
     @Override

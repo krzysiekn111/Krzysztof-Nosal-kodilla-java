@@ -5,7 +5,7 @@ public class TasksFactory {
     public static final String PAINTING_TASK = "Painting task";
     public static final String DRIVING_TASK = "Driving task";
 
-    public final Task makeTaskDone(final String taskType) {
-
-    }
+//    public final Task makeTaskDone(final String taskType) {
+//
+//    }
 }

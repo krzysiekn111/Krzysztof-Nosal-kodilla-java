@@ -1,6 +1,9 @@
 package com.kodilla.patterns.factory.tasks;
 
 public class PaintingTask implements Task {
+    String taskName;
+    String color;
+    String whatToPaint;
 
     PaintingTask(String taskName, String color, String whatToPaint) {
 
@@ -13,7 +16,7 @@ public class PaintingTask implements Task {
 
     @Override
     public String getTaskName() {
-        return null;
+        return taskName;
     }
 
     @Override
