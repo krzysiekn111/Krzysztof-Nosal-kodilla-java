@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class LibraryTestSuite {
 
@@ -31,6 +32,6 @@ public class LibraryTestSuite {
 
         //shallow copy
         assertEquals(library.getBooks(), clonedLibrary.getBooks());
-        assertEquals(library.getBooks(), clonedLibrary2.getBooks());
+        assertNotEquals(library.getBooks(), clonedLibrary2.getBooks());
     }
 }
