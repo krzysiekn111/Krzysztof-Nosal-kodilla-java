@@ -1,6 +1,5 @@
 select i.id, i.issueslist_id, i.summary, i.description, i.user_id_assignedto, l.name
        from issues i join issueslist l on i.ISSUESLIST_ID = l.ID
-group by i.ID
 
 select i.ID, i.ISSUESLIST_ID, i.SUMMARY, i.DESCRIPTION, i.USER_ID_ASSIGNEDTO,
        u.ID, u.FIRSTNAME, u.LASTNAME
