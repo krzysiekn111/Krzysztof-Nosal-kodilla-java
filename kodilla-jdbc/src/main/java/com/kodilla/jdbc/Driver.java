@@ -7,8 +7,9 @@ import java.sql.Statement;
 
 public class Driver {
     public static void main(String[] args) {
+        Connection connection;
         try {
-            Connection connection = DriverManager.getConnection(
+            connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/kodilla_course"
                             + "?useUnicode=true" +
                             "&characterEncoding=UTF-" +

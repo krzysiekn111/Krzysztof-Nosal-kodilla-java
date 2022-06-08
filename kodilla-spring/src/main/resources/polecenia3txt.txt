@@ -1,0 +1,9 @@
+insert into posts (USER_ID) VALUES (3)
+
+update posts
+set BODY = 'To delete'
+where id = 7
+
+delete
+from posts
+where ID = 7;
