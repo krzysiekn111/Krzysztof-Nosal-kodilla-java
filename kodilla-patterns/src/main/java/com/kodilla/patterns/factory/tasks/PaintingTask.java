@@ -1,26 +1,30 @@
 package com.kodilla.patterns.factory.tasks;
 
 public class PaintingTask implements Task {
-    String taskName;
+    private String taskName;
     String color;
     String whatToPaint;
+    private boolean isTaskExecuted;
 
-    PaintingTask(String taskName, String color, String whatToPaint) {
-
+    public PaintingTask(String taskName, String color, String whatToPaint) {
+        this.taskName = taskName;
+        this.color = color;
+        this.whatToPaint = whatToPaint;
     }
 
+
     @Override
-    public String executeTask() {
-        return null;
+    public void executeTask() {
+        isTaskExecuted = true;
     }
 
     @Override
     public String getTaskName() {
-        return taskName;
+        return taskName + color + whatToPaint;
     }
 
     @Override
     public Boolean isTaskExecuted() {
-        return true;
+        return isTaskExecuted;
     }
 }
