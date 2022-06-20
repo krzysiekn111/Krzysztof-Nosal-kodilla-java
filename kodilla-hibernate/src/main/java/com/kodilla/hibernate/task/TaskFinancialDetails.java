@@ -12,7 +12,6 @@ public class TaskFinancialDetails {
     private BigDecimal price;
     private boolean paid;
 
-
     public TaskFinancialDetails() {
     }
 

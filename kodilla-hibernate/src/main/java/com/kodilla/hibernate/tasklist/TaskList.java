@@ -7,17 +7,18 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
-@Table(name = "TASKLIST")
+@Table(name="TASKLISTS")
 public class TaskList {
 
+    private int id;
     private String listName;
     private String description;
-    private int id;
+    private List<Task> tasks = new ArrayList<>();
 
-    private List<Task> tasks = new ArrayList<Task>();
-
-    public TaskList() {}
+    public TaskList() {
+    }
 
     public TaskList(String listName, String description) {
         this.listName = listName;
@@ -25,33 +26,22 @@ public class TaskList {
     }
 
     @Id
-    @GeneratedValue
     @NotNull
-    @Column(name = "ID", unique = true)
+    @GeneratedValue
+    @Column(name="ID", unique=true)
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Column(name = "LISTNAME")
-    public String  getListName() {
+    @NotNull
+    @Column(name="LISTNAME")
+    public String getListName() {
         return listName;
-    }
-
-    public void setListName(String listName) {
-        this.listName = listName;
     }
 
     @Column(name = "DESCRIPTION")
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     @OneToMany(
@@ -64,7 +54,19 @@ public class TaskList {
         return tasks;
     }
 
-    public void setTasks(List<Task> taskList) {
+    private void setId(int id) {
+        this.id = id;
+    }
+
+    private void setListName(String listName) {
+        this.listName = listName;
+    }
+
+    private void setDescription(String description) {
+        this.description = description;
+    }
+
+    private void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
 }
