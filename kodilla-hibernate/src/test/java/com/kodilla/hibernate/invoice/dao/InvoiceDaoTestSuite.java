@@ -3,7 +3,6 @@ package com.kodilla.hibernate.invoice.dao;
 import com.kodilla.hibernate.invoice.Invoice;
 import com.kodilla.hibernate.invoice.Item;
 import com.kodilla.hibernate.invoice.Product;
-import com.kodilla.hibernate.tasklist.TaskList;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -45,7 +44,7 @@ public class InvoiceDaoTestSuite {
         assertNotEquals(0, id);
 
         //CleanUp
-//        invoiceDao.deleteById(id);
+        invoiceDao.deleteById(id);
 
 
     }
