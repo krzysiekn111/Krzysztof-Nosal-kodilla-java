@@ -41,6 +41,7 @@ class TaskDaoTestSuite {
         //CleanUp
         taskDao.deleteById(id);
     }
+
     @Test
     void testTaskDaoFindByDuration() {
         //Given
@@ -58,6 +59,7 @@ class TaskDaoTestSuite {
         int id = readTasks.get(0).getId();
         taskDao.deleteById(id);
     }
+
     @Test
     void testTaskDaoSaveWithFinancialDetails() {
         //Given
@@ -74,6 +76,7 @@ class TaskDaoTestSuite {
         //CleanUp
         //taskDao.deleteById(id);
     }
+
     @Test
     void testNamedQueries() {
         //Given
@@ -113,9 +116,9 @@ class TaskDaoTestSuite {
 
         //Then
         try {
-            assertEquals(1, longTasks.size());
+            assertEquals(7, longTasks.size());
             assertEquals(3, shortTasks.size());
-            assertEquals(3, enoughTimeTasks.size());
+            assertEquals(9, enoughTimeTasks.size());
         } finally {
             //CleanUp
             taskListDao.deleteById(id);
