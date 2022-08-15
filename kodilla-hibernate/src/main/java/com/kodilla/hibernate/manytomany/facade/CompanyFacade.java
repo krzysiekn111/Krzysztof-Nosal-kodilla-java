@@ -19,6 +19,6 @@ public class CompanyFacade {
     }
 
     public List<Company> getCompaniesBy(String fragment) {
-        return companyDB.findCompanyByNameFragment("%" + fragment + "%");
+        return companyDB.findCompanyByNameFragment(fragment);
     }
 }

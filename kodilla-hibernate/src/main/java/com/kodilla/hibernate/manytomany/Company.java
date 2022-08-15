@@ -12,7 +12,7 @@ import java.util.List;
         ),
         @NamedQuery(
                 name = "Company.findCompanyByNameFragment",
-                query = "from Company where name like ?1"
+                query = "from Company where name like concat('%', ?1, '%')"
         )
 })
 

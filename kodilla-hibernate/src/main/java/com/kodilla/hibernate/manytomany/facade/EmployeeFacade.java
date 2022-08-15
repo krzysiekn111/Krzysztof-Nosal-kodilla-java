@@ -21,6 +21,6 @@ public class EmployeeFacade {
     }
 
     public List<Employee> getEmployeesBy(String fragment) {
-        return employeeDao.findEmployeeByNameFragment("%" + fragment + "%");
+        return employeeDao.findEmployeeByNameFragment(fragment);
     }
 }
