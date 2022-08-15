@@ -13,4 +13,8 @@ import java.util.List;
 public interface CompanyDao extends CrudRepository<Company, Integer> {
     @Query
     List<Company> findCompanyWithThreeLetters(@Param("STARTS_WITH") String startsWith);
+
+    @Query
+    List<Company> findCompanyByNameFragment(String fragment);
+
 }

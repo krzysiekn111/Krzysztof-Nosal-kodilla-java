@@ -5,10 +5,17 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(
-        name = "Company.findCompanyWithThreeLetters",
-        query = "FROM Company WHERE SUBSTRING(name,1,3) = :STARTS_WITH"
-)
+@NamedQueries({
+        @NamedQuery(
+                name = "Company.findCompanyWithThreeLetters",
+                query = "FROM Company WHERE SUBSTRING(name,1,3) = :STARTS_WITH"
+        ),
+        @NamedQuery(
+                name = "Company.findCompanyByNameFragment",
+                query = "from Company where name like ?1"
+        )
+})
+
 
 @Entity
 @Table(name = "COMPANIES")
