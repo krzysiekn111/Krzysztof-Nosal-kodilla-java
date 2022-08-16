@@ -18,4 +18,12 @@ public final class ItemDto {
         return quantity;
     }
 
+    @Override
+    public String toString() {
+        return "\nItemDto{ " +
+                "productId: " + productId +
+                ", quantity: " + quantity +
+                '}';
+    }
+
 }
