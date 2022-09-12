@@ -37,18 +37,3 @@ public enum DbManager {
         return conn;                                            // [20]
     }                                                          // [21]
 }
-
-
-//                        "jdbc:mysql://localhost:3306/kodilla-course" +
-//                                "?serverTimezone=Europe/Warsaw" +
-//                                "&useSSL=False&allowPublicKeyRetrieval=true",
-//                                connectionProps);
-//
-//                    "jdbc:mysql://localhost:3306/kodilla_course" +
-//                            "?serverTimezone=Europe/Warsaw" +
-//                            "&useSSL=False&allowPublicKeyRetrieval=true",
-//                            "user" + "kodilla_user",
-//                            "password" + "kodilla_Pass123");
-//
-//        connectionProps.put("user", "kodilla_user");
-//                connectionProps.put("password", "kodilla_Pass123");

@@ -21,7 +21,7 @@ public class Driver {
             ResultSet resultSet = statement.executeQuery("select u.firstname, u.lastname, count(*) as Task_number\n" +
                     "from users u join issues i on u.ID = i.USER_ID_ASSIGNEDTO\n" +
                     "group by i.USER_ID_ASSIGNEDTO\n" +
-                    "ORDER BY U.LASTNAME, U.FIRSTNAME;");
+                    "ORDER BY U.lastname, U.firstname;");
 
             while (resultSet.next()) {
                 System.out.println(resultSet.getString("LastNAME"));
