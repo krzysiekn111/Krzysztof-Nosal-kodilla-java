@@ -1,7 +1,7 @@
 package com.kodilla.patterns2.adapter.bookclassifier;
 
 import com.kodilla.patterns2.adapter.bookclasifier.MedianAdapter;
-import com.kodilla.patterns2.adapter.bookclasifier.librarya.Book;
+import com.kodilla.patterns2.adapter.bookclasifier.librarya.BookA;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -15,20 +15,20 @@ public class MedianAdapterTestSuite {
     void publicationYearMedianTest() {
         //Given
         MedianAdapter medianAdapter = new MedianAdapter();
-        Set<Book> bookSet = new HashSet<>();
-        Book book1 = new Book("autor", "title", 1987, "625");
-        Book book2 = new Book("autor", "title", 2010, "195");
-        Book book3 = new Book("autor", "title", 1999, "678");
-        Book book4 = new Book("autor", "title", 2001, "765");
-//        Book book5 = new Book("autor", "title", 2002, "765");
+        Set<BookA> bookSet = new HashSet<>();
+        BookA bookA1 = new BookA("autor", "title", 1987, "625");
+        BookA book2 = new BookA("autor", "title", 2010, "195");
+        BookA book3 = new BookA("autor", "title", 1999, "678");
+        BookA book4 = new BookA("autor", "title", 2001, "765");
+        BookA book5 = new BookA("autor", "title", 2002, "768");
         //When
-        bookSet.add(book1);
+        bookSet.add(bookA1);
         bookSet.add(book2);
         bookSet.add(book3);
         bookSet.add(book4);
-//        bookSet.add(book5);
+        bookSet.add(book5);
         //Then
-        assertEquals(2000, medianAdapter.publicationYearMedian(bookSet));
+        assertEquals(2001, medianAdapter.publicationYearMedian(bookSet));
 
     }
 }
