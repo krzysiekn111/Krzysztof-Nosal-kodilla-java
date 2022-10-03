@@ -17,14 +17,14 @@ public class StoredProcTestSuite {
         String sqlUpdate = "UPDATE READERS SET VIP_LEVEL='Not set'";
         Statement statement = dbManager.getConnection().createStatement();
         statement.executeUpdate(sqlUpdate);
-        String sqlCheckTable = "SELECT COUNT(*) AS HOW_MANY FROM READERS WHERE VIP_LEVEL='Not set'";
-        ResultSet rs = statement.executeQuery(sqlCheckTable);
 
         // When
         String sqlProcedureCall = "CALL UpdateVipLevels()";
         statement.execute(sqlProcedureCall);
 
         // Then
+        String sqlCheckTable = "SELECT COUNT(*) AS HOW_MANY FROM READERS WHERE VIP_LEVEL='Not set'";
+        ResultSet rs = statement.executeQuery(sqlCheckTable);
         int howMany = -1;
         if (rs.next()) {
             howMany = rs.getInt("HOW_MANY");
@@ -53,7 +53,7 @@ public class StoredProcTestSuite {
         if (rs.next()) {
             bestsellers = rs.getInt("HOW_MANY");
         }
-        assertEquals(2, bestsellers);
+        assertEquals(3, bestsellers);
         rs.close();
         statement.close();
     }
