@@ -26,13 +26,17 @@ public class CrudAppTestSuite {
 
     @AfterEach
     public void cleanUpAfterTest() {
-        driver.close();
+//        driver.close();
     }
 
     private String createCrudAppTestTask() throws InterruptedException {
-        final String XPATH_TASK_NAME = "//form[contains(@action,\"createTask\")]/fieldset[1]/input";
-        final String XPATH_TASK_CONTENT = "//form[contains(@action,\"createTask\")]/fieldset[2]/textarea";
-        final String XPATH_ADD_BUTTON = "//form[contains(@action,\"createTask\")]/fieldset[3]/button";
+//        final String XPATH_TASK_NAME = "//form[contains(@action,\"createTask\")]/fieldset[1]/input";
+        final String XPATH_TASK_NAME = "/html/body/main/section[1]/form/fieldset[1]/input";
+//        final String XPATH_TASK_CONTENT = "//form[contains(@action,\"createTask\")]/fieldset[2]/textarea";
+        final String XPATH_TASK_CONTENT = "/html/body/main/section[1]/form/fieldset[2]/textarea";
+//        final String XPATH_ADD_BUTTON = "//form[contains(@action,\"createTask\")]/fieldset[3]/button";
+        final String XPATH_ADD_BUTTON = "/html/body/main/section[1]/form/fieldset[3]/button";
+        final String XPATH_PUT_EMAIL = "//*[@id=\"user\"]";
         String taskName = "Task number " + generator.nextInt(100000);
         String taskContent = taskName + " content";
 
@@ -44,7 +48,7 @@ public class CrudAppTestSuite {
 
         WebElement addButton = driver.findElement(By.xpath(XPATH_ADD_BUTTON));
         addButton.click();
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
 
         return taskName;
     }
@@ -68,32 +72,39 @@ public class CrudAppTestSuite {
                             theForm.findElement(By.xpath(".//button[contains(@class, \"card-creation\")]")); // [12]
                     buttonCreateCard.click();                                  // [13]
                 });                                                            // [14]
-        Thread.sleep(5000);                                                  // [15]
+//        Thread.sleep(1000);                                                  // [15]
     }
 
     private boolean checkTaskExistsInTrello(String taskName) throws InterruptedException {
         final String TRELLO_URL = "https://trello.com/login";
         boolean result = false;
+        final String XPATH_PUT_EMAIL = "//*[@id=\"user\"]";
+        final String XPATH_SELECT_BOARD = "//*[@id=\"content\"]/div/div[2]/div/div/div/div/div[2]/div/div/div/div[2]/div/div[2]/ul/li/a/div";
         WebDriver driverTrello = WebDriverConfig.getDriver(WebDriverConfig.FIREFOX);	// [1]
         driverTrello.get(TRELLO_URL);                                                // [2]
 
         driverTrello.findElement(By.id("user")).sendKeys("krzysztofnosal1");		        // [3]
-        driverTrello.findElement(By.id("password")).sendKeys("krzysztofnosal1");		    // [4]
+//        driverTrello.findElement(By.id("password")).sendKeys("krzysztofnosal1");		    // [4]
         WebElement el = driverTrello.findElement(By.id("login"));
         el.submit();									                                // [5]
 
-        Thread.sleep(4000);								                            // [6]
+        Thread.sleep(2000);								                            // [6]
+
+        driverTrello.findElement(By.id("username")).sendKeys("krzysiekn111@gmail.com");
+        driverTrello.findElement(By.id("login-submit")).submit();
+
+        Thread.sleep(1000);
 
         driverTrello.findElement(By.id("password")).sendKeys("krzysztofnosal1");		    // [7]
         driverTrello.findElement(By.id("login-submit")).submit();
 
-        Thread.sleep(4000);								                            // [8]
+        Thread.sleep(8000);								                            // [8]
 
-        driverTrello.findElements(By.xpath("//a[@class=\"board-title\"]")).stream()  // [9]
-                .filter(aHref -> aHref.findElements(By.xpath(".//div[@title=\"Kodilla Application\"]")).size() > 0)  // [10]
+        driverTrello.findElements(By.xpath(XPATH_SELECT_BOARD)).stream()  // [9]
+                .filter(aHref -> aHref.findElements(By.xpath(".//div[@title=\"Kodilla Aplication\"]")).size() > 0)  // [10]
                 .forEach(WebElement::click);						                        // [11]
 
-        Thread.sleep(4000);								                            // [12]
+        Thread.sleep(8000);								                            // [12]
 
         result = driverTrello.findElements(By.xpath("//span")).stream()		        // [13]
                 .anyMatch(theSpan -> theSpan.getText().equals(taskName));    		        // [14]
@@ -113,4 +124,3 @@ public class CrudAppTestSuite {
 }
 
 
-//        final String XPATH_TASK_NAME = "/html/body/main/section[1]/form/fieldset[1]/input";
