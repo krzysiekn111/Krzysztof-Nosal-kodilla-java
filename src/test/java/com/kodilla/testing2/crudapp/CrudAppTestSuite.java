@@ -24,9 +24,40 @@ public class CrudAppTestSuite {
         generator = new Random();
     }
 
-    @AfterEach
-    public void cleanUpAfterTest() {
+    //    @AfterEach
+//    public void cleanUpAfterTest() {
 //        driver.close();
+//    }
+
+    @Test
+    public void shouldCreateTrelloCard() throws InterruptedException {
+        String taskName = createCrudAppTestTask();
+        sendTestTaskToTrello(taskName);
+        assertTrue(checkTaskExistsInTrello(taskName));
+    }
+
+    @Test public void shouldDeleteTrelloCard() throws InterruptedException {
+        String taskName = createCrudAppTestTask();
+        sendTestTaskToTrello(taskName);
+        deleteTestTask(taskName);
+    }
+
+    private void deleteTestTask(String taskName) throws InterruptedException {
+        driver.switchTo().alert().dismiss();
+        while(0==driver.findElements(By.xpath("/html/body/main/section[2]/div/form/div/fieldset[2]/select[1]")).size());
+
+        driver.findElements(
+                        By.xpath("//form[@class=\"datatable__row\"]")).stream()
+                .filter(anyForm ->
+                        anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
+                                .getText().equals(taskName))
+                .forEach(theForm -> {
+                    WebElement deleteButton =
+                            theForm.findElement(By.xpath(".//button[contains(@class, \"datatable__button\")][4]"));
+                    deleteButton.click();
+                });
+
+        Thread.sleep(1000);
     }
 
     private String createCrudAppTestTask() throws InterruptedException {
@@ -49,7 +80,7 @@ public class CrudAppTestSuite {
 
         WebElement addButton = driver.findElement(By.xpath(XPATH_ADD_BUTTON));
         addButton.click();
-//        Thread.sleep(2000);
+        Thread.sleep(2000);
 
         return taskName;
     }
@@ -73,7 +104,7 @@ public class CrudAppTestSuite {
                             theForm.findElement(By.xpath(".//button[contains(@class, \"card-creation\")]")); // [12]
                     buttonCreateCard.click();                                  // [13]
                 });                                                            // [14]
-//        Thread.sleep(1000);                                                  // [15]
+        Thread.sleep(1000);                                                  // [15]
     }
 
     private boolean checkTaskExistsInTrello(String taskName) throws InterruptedException {
@@ -113,13 +144,6 @@ public class CrudAppTestSuite {
         driverTrello.close();							                            // [15]
 
         return result;
-    }
-
-    @Test
-    public void shouldCreateTrelloCard() throws InterruptedException {
-        String taskName = createCrudAppTestTask();
-        sendTestTaskToTrello(taskName);
-        assertTrue(checkTaskExistsInTrello(taskName));   // [1]
     }
 
 }
