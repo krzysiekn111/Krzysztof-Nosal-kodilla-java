@@ -30,8 +30,9 @@ public class CrudAppTestSuite {
     }
 
     private String createCrudAppTestTask() throws InterruptedException {
-//        final String XPATH_TASK_NAME = "//form[contains(@action,\"createTask\")]/fieldset[1]/input";
-        final String XPATH_TASK_NAME = "/html/body/main/section[1]/form/fieldset[1]/input";
+//        final String XPATH_TASK_NAME = "//form[contains(@action,\"api.trello.com\")]/fieldset[1]/input";
+        final String XPATH_TASK_NAME = "//input[contains(@placeholder,\"Insert\")]";
+//        final String XPATH_TASK_NAME = "//form[contains(@class,\"data\")]/fieldset[1]/input";
 //        final String XPATH_TASK_CONTENT = "//form[contains(@action,\"createTask\")]/fieldset[2]/textarea";
         final String XPATH_TASK_CONTENT = "/html/body/main/section[1]/form/fieldset[2]/textarea";
 //        final String XPATH_ADD_BUTTON = "//form[contains(@action,\"createTask\")]/fieldset[3]/button";
